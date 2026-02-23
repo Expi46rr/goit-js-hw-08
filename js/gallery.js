@@ -94,4 +94,14 @@ if (e.target.nodeName !== 'IMG') return;
   `);
 
   instance.show();
+
+
+const closeWithEsc = (e) => {
+  if (e.key === 'Escape') {
+    instance.close();
+    document.removeEventListener('keydown', closeWithEsc);
+  }
+};
+document.addEventListener('keydown', closeWithEsc);
+
 })
